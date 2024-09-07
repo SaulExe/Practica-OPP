@@ -97,43 +97,33 @@ public class Program
 {
     public static void Main(string[] args)
     {
-        // Crear la escuela
         Escuela escuela = new Escuela("Escuela Primaria");
 
-        // Crear una clase
         Clase clase1 = new Clase("1A");
 
-        // Pedir al usuario que inserte estudiantes
         Console.WriteLine("¿Cuántos estudiantes desea agregar?");
         int cantidadEstudiantes = Convert.ToInt32(Console.ReadLine());
 
         for (int i = 0; i < cantidadEstudiantes; i++)
         {
-            // Pedir el nombre del estudiante
             Console.WriteLine($"Ingrese el nombre del estudiante {i + 1}: ");
             string nombreEstudiante = Console.ReadLine();
 
-            // Pedir el número único del estudiante
             Console.WriteLine($"Ingrese el número único del estudiante {i + 1}: ");
             int numeroUnico = Convert.ToInt32(Console.ReadLine());
 
-            // Crear un nuevo estudiante y agregarlo a la clase
             Estudiante estudiante = new Estudiante(nombreEstudiante, numeroUnico);
             clase1.AgregarEstudiante(estudiante);
         }
 
-        // Crear profesor y cursos (puedes agregar la lógica para insertar por consola si lo deseas)
         Profesor profesor1 = new Profesor("Profesor García");
         Curso cursoMatematicas = new Curso("Matemáticas", 30, 10);
         profesor1.AgregarCurso(cursoMatematicas);
 
-        // Agregar el profesor a la clase
         clase1.AgregarProfesor(profesor1);
 
-        // Agregar la clase a la escuela
         escuela.AgregarClase(clase1);
 
-        // Mostrar información de la escuela
         Console.WriteLine($"Escuela: {escuela.Nombre}");
         foreach (var clase in escuela.Clases)
         {
